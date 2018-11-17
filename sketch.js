@@ -51,11 +51,19 @@ var brush = document.querySelectorAll("ul.brush > li");
 
 var bigger = brush[0];
 var smaller = brush[1];
-var sizeBrush = brush[2];
+var sizeBrush = parseInt(brush[2].textContent);
 var round = brush[3];
 var square = brush[4];
 
 var currentBrush = "round";
+
+function changeCurrentBrush(){
+    currentBrush = this.textContent;
+}
+
+round.addEventListener("click", changeCurrentBrush);
+square.addEventListener("click", changeCurrentBrush);
+
 
 // Draw
 
@@ -66,9 +74,14 @@ function setup() {
 } 
   
 function draw() {
-    if (mouseIsPressed == true) {
+    if (mouseIsPressed == true && currentBrush == "round") {
         fill(currentColor);
         noStroke();
-        ellipse(mouseX, mouseY, parseInt(sizeBrush), parseInt(sizeBrush))
+        ellipse(mouseX, mouseY, parseInt(sizeBrush), parseInt(sizeBrush));
+    }
+    if (mouseIsPressed == true && currentBrush == "square") {
+        fill(currentColor);
+        noStroke();
+        rect(mouseX, mouseY, parseInt(sizeBrush), parseInt(sizeBrush));
     }
 }
