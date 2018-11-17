@@ -58,7 +58,7 @@ var square = brush[4];
 var currentBrush = "round";
 
 function changeCurrentBrush(){
-    currentBrush = this.textContent;
+    currentBrush = this.className;
 }
 
 round.addEventListener("click", changeCurrentBrush);
@@ -82,6 +82,6 @@ function draw() {
     if (mouseIsPressed == true && currentBrush == "square") {
         fill(currentColor);
         noStroke();
-        rect(mouseX, mouseY, parseInt(sizeBrush), parseInt(sizeBrush));
+        rect(mouseX-parseInt(sizeBrush)/2, mouseY-parseInt(sizeBrush)/2, parseInt(sizeBrush), parseInt(sizeBrush));
     }
 }
