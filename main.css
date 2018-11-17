@@ -1,0 +1,48 @@
+.colors{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding: 0;
+    margin: 0, 0, 20px 0;
+    grid-gap: 10px;
+}
+
+.colors > li{
+    list-style: none;
+    padding: 10px;
+    margin: 0, 0, 20px 0;
+    color: white;
+    text-align: center;
+}
+
+.shades{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0;
+    margin: 0, 0, 20px 0;
+    grid-gap: 10px;
+}
+
+.shades > li{
+    list-style: none;
+    padding: 10px;
+    margin: 0, 0, 20px 0;
+    color: white;
+    text-align: center;
+}
+
+.brush{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    padding: 0;
+    margin: 0, 0, 20px 0;
+    grid-gap: 10px;
+}
+
+.brush > li{
+    list-style: none;
+    padding: 10px;
+    margin: 0, 0, 20px 0;
+    color: black;
+    text-align: center;
+    border: 1px solid black;
+}
