@@ -61,8 +61,25 @@ function changeCurrentBrush(){
     currentBrush = this.className;
 }
 
+function sizeBigger(){
+    sizeBrush += 5;
+    brush[2].textContent = sizeBrush;
+}
+
+function sizeSmaller(){
+    if(sizeBrush > 0){
+        sizeBrush -= 5;
+        brush[2].textContent = sizeBrush;
+    } else{
+        sizeBrush = 0;
+        brush[2].textContent = sizeBrush;
+    }
+}
+
 round.addEventListener("click", changeCurrentBrush);
 square.addEventListener("click", changeCurrentBrush);
+bigger.addEventListener("click", sizeBigger);
+smaller.addEventListener("click", sizeSmaller);
 
 
 // Draw
@@ -70,18 +87,18 @@ square.addEventListener("click", changeCurrentBrush);
 function setup() { 
     createCanvas(can.height, can.width);
     frameRate(99999999999999);
-    currentColor = redC.style.backgroundColor;
+    currentColor = blackC.style.backgroundColor;
 } 
   
 function draw() {
-    if (mouseIsPressed == true && currentBrush == "round") {
+    if (mouseIsPressed == true && currentBrush == "round" && mouseY >= 0 && mouseY <= can.height && mouseX >= 0 && mouseX <= can.width) {
         fill(currentColor);
         noStroke();
-        ellipse(mouseX, mouseY, parseInt(sizeBrush), parseInt(sizeBrush));
+        ellipse(mouseX, mouseY, sizeBrush,sizeBrush);
     }
-    if (mouseIsPressed == true && currentBrush == "square") {
+    if (mouseIsPressed == true && currentBrush == "square" && mouseY >= 0 && mouseY <= can.height && mouseX >= 0 && mouseX <= can.width) {
         fill(currentColor);
         noStroke();
-        rect(mouseX-parseInt(sizeBrush)/2, mouseY-parseInt(sizeBrush)/2, parseInt(sizeBrush), parseInt(sizeBrush));
+        rect(mouseX-sizeBrush/2, mouseY-sizeBrush/2, sizeBrush, sizeBrush);
     }
 }
